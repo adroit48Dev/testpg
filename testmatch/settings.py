@@ -32,7 +32,7 @@ SECRET_KEY = 'i)z#yecjt&#qg!l+4z(*k0@0_!yykf0!ekaj+2qqguw^!4uj&v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['agam-matchup.herokuapp.com', 'localhost', '127.0.0.1', '0.0.0.0']
 
 
 # Application definition
