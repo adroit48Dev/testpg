@@ -18,10 +18,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'upload') #File path is not absolute path is project path
+MEDIA_ROOT = os.path.join(BASE_DIR, 'upload')  # File path is not absolute path is project path
 MEDIA_URL = '/upload/'
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -33,7 +31,6 @@ SECRET_KEY = 'i)z#yecjt&#qg!l+4z(*k0@0_!yykf0!ekaj+2qqguw^!4uj&v'
 DEBUG = True
 
 ALLOWED_HOSTS = ['agam-matchup.herokuapp.com', 'localhost', '127.0.0.1', '0.0.0.0']
-
 
 # Application definition
 
@@ -93,22 +90,26 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-
-
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'tamilnewdb',
-    },
-    'test': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        "CLIENT": {
+            "host": "mongodb+srv://<username>:<password>@clustertv.05qgb.mongodb.net/<dbname>?retryWrites=true&w=majority",
+            "username": "testmatchuser",
+            "password": "testmatchpassword",
+            "name": "tamildbnew",
+            "authMechanism": "SCRAM-SHA-1",
+        },
+
+        'test': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -128,7 +129,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -142,7 +142,5 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
