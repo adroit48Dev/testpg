@@ -26,6 +26,7 @@ from rest_framework import routers
 router = routers.DefaultRouter()
 
 router.register(r'api/match', views.MatchContentViewSet)
+# router.register(r'api/game', views.MatchupGameViewSet)
 
 
 urlpatterns = [

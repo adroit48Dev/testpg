@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'matchup',
-    'corsheaders'
+    'corsheaders',
+    'clear_cache'
 ]
 
 MIDDLEWARE = [
@@ -100,7 +101,7 @@ STATICFILES_DIRS = (
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'tamildb',
+        'NAME': 'tamilnewdb',
     },
     'test': {
         'ENGINE': 'django.db.backends.sqlite3',
