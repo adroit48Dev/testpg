@@ -1,15 +1,11 @@
-from django.shortcuts import render
-from .serializers import MatchContentSerializer, MatchModelSerializer
-from .models import MatchContent, MatchModel
+from .serializers import GameListSerializer
+from .models import GameList
 from rest_framework import viewsets, generics
 
 
-# Create your views here.
-class MatchContentViewSet(viewsets.ModelViewSet):
-    queryset = MatchContent.objects.all()
-    serializer_class = MatchContentSerializer
+class GameListViewSet(viewsets.ModelViewSet):
+    queryset = GameList.objects.all()
+    serializer_class = GameListSerializer
 
-#7871743518
-# class MatchupGameViewSet(viewsets.ModelViewSet):
-#     queryset = MatchContent.objects.all()
-#     serializer_class = AllSerializer
+    def get_queryset(self):
+        return GameList.objects.all()

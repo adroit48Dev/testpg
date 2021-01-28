@@ -30,7 +30,7 @@ SECRET_KEY = 'i)z#yecjt&#qg!l+4z(*k0@0_!yykf0!ekaj+2qqguw^!4uj&v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['agam-matchup.herokuapp.com', 'localhost', '127.0.0.1', '0.0.0.0']
+ALLOWED_HOSTS = ['13.233.178.201', 'agam-matchup.herokuapp.com', 'localhost', '127.0.0.1', '0.0.0.0']
 
 # Application definition
 
@@ -94,7 +94,7 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'mongo': {
         'ENGINE': 'djongo',
         "CLIENT": {
             "host": "mongodb+srv://<username>:<password>@clustertv.05qgb.mongodb.net/<dbname>?retryWrites=true&w=majority",
@@ -104,10 +104,25 @@ DATABASES = {
             "authMechanism": "SCRAM-SHA-1",
         },
 
-        'test': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'tamildb',
+
+            'HOST': '127.0.0.1',
+            'PORT': '5432',
         }
+    },
+    'djongo': {
+        'ENGINE': 'djongo',
+        'NAME': 'tamildbnew'
+    },
+    'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'tamildbnew',
+	    'USER': 'agam',
+	    'PASSWORD': 'agam2020',
+            'HOST': '127.0.0.1',
+            'PORT': '5432',
     }
 }
 
@@ -144,3 +159,4 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
+

@@ -16,6 +16,9 @@ Including another URLconf
 import sys
 sys.path.append("..")
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 from matchup import views
 
 from rest_framework import routers
@@ -25,8 +28,10 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()
 
-router.register(r'api/match', views.MatchContentViewSet)
+#router.register(r'api/match', views.MatchContentViewSet)
 # router.register(r'api/game', views.MatchupGameViewSet)
+#router.register(r'api/template', views.EntryViewSet)
+router.register(r'api/matgame', views.GameListViewSet)
 
 
 urlpatterns = [
@@ -34,3 +39,9 @@ urlpatterns = [
     path('', include(router.urls)),
 
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
