@@ -20,6 +20,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from matchup import views
+from matchup.apiviews import GameDetail
+
 
 from rest_framework import routers
 from django.contrib import admin
@@ -37,7 +39,8 @@ router.register(r'api/matgame', views.GameListViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-
+    path('game/', GameDetail.as_view()),
+    path('game/<int:pk>/', GameDetail.as_view()),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
